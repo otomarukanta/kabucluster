@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tweepy = "*"
+neologdn = "*"
+sqlalchemy = "*"
+pymysql = "*"
+mecab-python3 = "*"
+click = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
