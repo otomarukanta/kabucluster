@@ -1,7 +1,7 @@
 import click
 from kabucluster.settings import engine
 from kabucluster.models import Base
-from kabucluster.collector import Collector
+from kabucluster.daemon import Daemon
 from kabucluster.utils.auth import get_auth
 
 @click.group()
@@ -25,17 +25,14 @@ def init():
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 
-@cli.group()
-def run():
-    pass
-
-@run.command()
+@cli.command()
 @click.option('-o', '--once', is_flag=True)
-def collector(once):
+def run(once):
     if once:
-        Collector().run()
+        Daemon().run()
     else:
-        Collector().run_forever()
+        pass
+        # Tokenizer().run_forever()
 
 if __name__ == '__main__':
     cli()

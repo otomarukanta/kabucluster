@@ -10,6 +10,8 @@ sqlalchemy = "*"
 pymysql = "*"
 mecab-python3 = "*"
 click = "*"
+emoji = "*"
+dataclass-csv = "*"
 
 [dev-packages]
 
