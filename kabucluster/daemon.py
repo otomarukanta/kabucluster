@@ -117,6 +117,8 @@ class Daemon:
         return token
 
     def load(self, tokens):
+        if len(tokens) == 0:
+            return
         session = settings.session()
         session.execute(TweetToken.__table__.insert().prefix_with('IGNORE').values(tokens))
         session.commit()
