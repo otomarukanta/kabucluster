@@ -31,8 +31,7 @@ def run(once):
     if once:
         Daemon().run()
     else:
-        pass
-        # Tokenizer().run_forever()
+        Daemon().run_forever()
 
 if __name__ == '__main__':
     cli()

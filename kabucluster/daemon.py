@@ -3,6 +3,8 @@ import re
 from datetime import timedelta, datetime
 import dataclasses
 import itertools
+import time
+import threading
 
 import tweepy
 import neologdn
@@ -130,4 +132,14 @@ class Daemon:
             } for token in tokens]
 
             self.load([token for token in tokens if token['code']])
+    
+
+    def run_forever(self, interval = 5):
+        base_time = time.time()
+        next_time = 0
+        while True:
+            t = threading.Thread(target=self.run)
+            t.start()
+            next_time = ((base_time - time.time()) % interval) or interval
+            time.sleep(next_time)
 

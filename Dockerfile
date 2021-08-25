@@ -16,7 +16,7 @@ COPY Pipfile Pipfile.lock ${WORKDIR}
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
     cd mecab-ipadic-neologd && \
     ./bin/install-mecab-ipadic-neologd -n -y -p /usr/share/mecab/dic/neologd -u && \
-    echo "dictdir = /usr/share/mecab/dic"
+    echo "dictdir = /usr/share/mecab/dic" > /usr/local/etc/mecabrc
 
 RUN pip install pipenv --no-cache-dir && \
     pipenv install --system --deploy && \
